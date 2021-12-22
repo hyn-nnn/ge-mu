@@ -25,13 +25,13 @@ function setup(){
   jump = 10;
 
 //画像イメージの読み込み
-  director1 = loadImage("../images/director01.png");
-  director2 = loadImage("../images/director02.png");
-  director3 = loadImage("../images/director03.png");
-  director4 = loadImage("../images/director04.png");
-  director5 = loadImage("../images/director_jumpR.png");
-  director6 = loadImage("../images/director_jumpL.png");
-  goalFlag = loadImage("../images/goalFlag.png");
+  director1 = loadImage("images/director01.png");
+  director2 = loadImage("images/director02.png");
+  director3 = loadImage("images/director03.png");
+  director4 = loadImage("images/director04.png");
+  director5 = loadImage("images/director_jumpR.png");
+  director6 = loadImage("images/director_jumpL.png");
+  goalFlag = loadImage("images/goalFlag.png");
 }
 
 
