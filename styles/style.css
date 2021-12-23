@@ -3,6 +3,10 @@ header {
   background-color: #963;
 }
 
-.midasi {
+main {
+  display: flex;
+}
+
+#midasi {
   background-color: #FF6;
 }

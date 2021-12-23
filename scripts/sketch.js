@@ -7,7 +7,9 @@ let direction;       //方向　右：１　左：−１
 let jump;
 
 function setup(){
-  createCanvas(500,250);
+  let canvas = createCanvas(500,250);
+  canvas.parent('game');
+
   noStroke();
   
   floorHeight = 0.75*height;
@@ -31,7 +33,7 @@ function setup(){
   director4 = loadImage("images/director04.png");
   director5 = loadImage("images/director_jumpR.png");
   director6 = loadImage("images/director_jumpL.png");
-  goalFlag = loadImage("images/goalFlag.png");
+  goalFlag  = loadImage("images/goalFlag.png");
 }
 
 
@@ -71,10 +73,10 @@ function walkMotion(){
     }
   }
   
-  if(!keyIsPressed){
+  if(keyIsPressed == false){
     if(1<abs(vx)){
-      vx = 0.8*vx;
-    } else{
+      vx *= 0.8;
+    } else {
       vx = 0;
     }
   }

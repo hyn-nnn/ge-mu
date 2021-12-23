@@ -3,30 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- Remote style sheet -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-
-  <!-- Local style sheet relative to workspace folder -->
+  <title>３・２・１アクション！-チーム17</title>
   <link rel="stylesheet" href="styles/style.css">
-
-  <!-- Local style sheet relative to this file -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Embedded style sheet -->
-  <style>
-    #content {
-      display: block;
-    }
-
-    .internal {
-      display: block;
-    }
   </style>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play/lib/p5.play.js"></script>
   <script src="libraries/p5.accessibility.js"></script>
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+
+  <script src="scripts/sketch.js"></script>
   </head>
 
 <body>
@@ -34,15 +21,34 @@
     <img src="images/logo.png">
   </header>
 
-  <div class="container external internal" id="content">
-    <div class="row">
-      <div class="col">
-        <p class="midasi">ゲーム</p>
-        <script src="scripts/sketch.js"></script>
-      </div>
-      <div class="col"><p class="midasi"></p></div>
-    </div>
-  </div>
-</body>
+  <main>
+    <p id="midasi">解説</p>
+    <ul>
+      <li>loadImage(“画像ファイル”)<br>
+      画像ファイルを表示する。</li>
+      <br>
+      <li>変数名.resize(幅, 高さ)<br>
+      画像ファイルのサイズを変更する。</li>
+      <br>
+      <li>gameover関数<br>
+      背景を黒くし、画像を中央に貼り付ける。</li>
+      <br>
+      <li>drawMap関数<br>
+      行列mapのj列i行の値が1または2なら床を配置する。1は地面の中の画像 2は地上の画像</li>
+      <br>
+      <li>nomalMap関数<br>
+      普通の平地のマップを行列mapに代入</li>
+      <br>
+      <li>jumpMap関数<br>
+      ジャンプが必要なマップを行列mapに代入</li>
+      <br>
+      <li>wholeMap関数<br>
+      穴があるマップを行列mapに代入</li>
+    </ul>
 
+    
+    <p id="midasi">ゲーム</p>
+    <p id="game"></p>
+  </main>
+</body>
 </html>
