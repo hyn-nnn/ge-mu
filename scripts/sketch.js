@@ -1,4 +1,4 @@
-let director1, director2, director3, director4, director5, director6, stage, goalFlag;
+let director1, director2, director3, director4, director5, director6, stage, goalFlag, gameclear;
 let floorHeight;
 let x, y, vx, vy, ax, g;
 let bgx,bgw;
@@ -34,6 +34,7 @@ function setup(){
   director5 = loadImage("images/director_jumpR.png");
   director6 = loadImage("images/director_jumpL.png");
   goalFlag  = loadImage("images/goalFlag.png");
+  gameclear = loadImage("images/gameclear.png");
 }
 
 
@@ -41,7 +42,6 @@ function draw(){
   background(102, 153, 204);
   fill(95,0,0);
   rect(0,floorHeight+30,width,floorHeight);
-  image(goalFlag, 450, floorHeight-20);
 
   velocity();
   Jump();
@@ -163,7 +163,29 @@ function drawBackgrounds (backgroundX){
 }
 
 function Goal(){
+  image(goalFlag, 450, floorHeight-20);
   if(450 < x){
+    let btnX = width / 5 * 1;
+    let btnY = height / 10 * 7;
+    let btnW = width / 5;
+    let btnH = height / 10;
+    fill(0);
+    rect(btnX, btnY, btnW, btnH);
+    textSize(20);
+    fill(255);
+    text("TRY AGAIN", width / 5+10, btnY + btnH / 2+5);
+    if(isInside(mouseX, mouseY, btnX, btnX + btnW, btnY, btnY + btnH)){
+      if (mousePressed) {
+        mapX = 0;
+        mapY = 0;
+        x = initX;
+        y = initY;
+        pcSpX = 0;
+        pcSpY = 0;
+        gameMode = 0;
+      }
+    }
+    image(gameclear, 80, 0);
     textSize(60);
     text("GAME CLEAR", 60, 120);
     x = 460;
