@@ -23,6 +23,24 @@
 
   <main>
     <p id="midasi">解説</p>
+    <p id="source">
+      <code>
+        <pre>
+function draw(){
+  background(102, 153, 204);
+  fill(95,0,0);
+  rect(0,floorHeight+30,width,floorHeight);
+
+  velocity();
+  Jump();
+  drawBackground();
+  drawBackgrounds(bgx);
+  walkMotion();
+  Goal();
+}
+        </pre>
+      </code>
+    </p>
     <ul>
       <li>loadImage(“画像ファイル”)<br>
       画像ファイルを表示する。</li>

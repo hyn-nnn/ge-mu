@@ -10,3 +10,8 @@ main {
 #midasi {
   background-color: #FF6;
 }
+
+#source {
+  width: 100%;
+  flex-grow: 0;
+}

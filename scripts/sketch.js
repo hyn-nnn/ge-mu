@@ -1,4 +1,5 @@
-let director1, director2, director3, director4, director5, director6, stage, goalFlag, gameclear;
+let director1, director2, director3, director4, director5, director6, haikei, goalFlag, gameover, gameclear;
+let mapX, mapY, SCROLL_SPEED;
 let floorHeight;
 let x, y, vx, vy, ax, g;
 let bgx,bgw;
@@ -33,7 +34,9 @@ function setup(){
   director4 = loadImage("images/director04.png");
   director5 = loadImage("images/director_jumpR.png");
   director6 = loadImage("images/director_jumpL.png");
+  haikei    = loadImage("images/haikei.png")
   goalFlag  = loadImage("images/goalFlag.png");
+  gameover  = loadImage("images/gameover.png")
   gameclear = loadImage("images/gameclear.png");
 }
 
@@ -49,6 +52,14 @@ function draw(){
   drawBackgrounds(bgx);
   walkMotion();
   Goal();
+
+  if(gameMode == 0){
+    gameStage();
+  } else if(gameMode == 1){
+    gameOver();
+  } else if(gameMode == 2){
+    gameClear();
+  }
 }
 
 //横移動のモーション
@@ -121,7 +132,11 @@ function Jump(){
   }
 }
 
-function drawBackground(){
+function drawBackground(q){
+  getDispImg();
+}
+
+/*function drawBackground(){
   if(bgx <= 0){
     x += vx;
     if(width/2 < x){
@@ -151,7 +166,7 @@ function drawBackground(){
       bgx = bgw;
     }
   }
-}
+}*/
 
 function drawBackgrounds (backgroundX){
   fill(255);
@@ -165,30 +180,75 @@ function drawBackgrounds (backgroundX){
 function Goal(){
   image(goalFlag, 450, floorHeight-20);
   if(450 < x){
-    let btnX = width / 5 * 1;
-    let btnY = height / 10 * 7;
-    let btnW = width / 5;
-    let btnH = height / 10;
-    fill(0);
-    rect(btnX, btnY, btnW, btnH);
-    textSize(20);
-    fill(255);
-    text("TRY AGAIN", width / 5+10, btnY + btnH / 2+5);
-    if(isInside(mouseX, mouseY, btnX, btnX + btnW, btnY, btnY + btnH)){
-      if (mousePressed) {
-        mapX = 0;
-        mapY = 0;
-        x = initX;
-        y = initY;
-        pcSpX = 0;
-        pcSpY = 0;
-        gameMode = 0;
-      }
-    }
-    image(gameclear, 80, 0);
     textSize(60);
     text("GAME CLEAR", 60, 120);
     x = 460;
     y = floorHeight;
   }
+}
+
+function gameOver(){
+  image(gameover, 100, 0);
+  if(keyPressed){
+
+  }
+}
+
+function gameClear(){
+  let btnX = width / 5 * 1;
+  let btnY = height / 10 * 7;
+  let btnW = width / 5;
+  let btnH = height / 10;
+  fill(0);
+  rect(btnX, btnY, btnW, btnH);
+  textSize(20);
+  fill(255);
+  text("TRY AGAIN", width/5 + 10, btnY + btnH/2 + 5);
+  if(isIndide(mouseX, mouseY, btnX, btnH, btnX+btnW, btnY+btnH)){
+    if (mousePressed()) {
+      mapX = 0;
+      mapY = 0;
+      x = initX;
+      y = initY;
+      pcSpX = 0;
+      pcSpY = 0;
+      gameMode = 0;
+    }
+  }
+  image(gameclear, 80, 0);
+
+}
+
+function isInside(x, y, minX, minY, maxX, maxY){
+  if(x > minX && x < maxX && y > minY && y < maxY){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function mousePressed(){
+  return true;
+}
+
+
+function getDispImg() {
+  let cutWidth = width;
+  let overWidth = 0;
+  let map = createImage(width, height, ARGB);
+  if (mapX + width > haikei.width) {
+    overWidth = (mapX + width) - haikei.width;  
+    cutWidth = width - overWidth;
+  }
+  let cutLeftImg = haikei.get( mapX, 0, cutWidth, height );
+  map.set( 0, 0, cutLeftImg );
+  if ( overWidth > 0 ) {
+    let cutRightImg = haikei.get( 0, 0, overWidth, height );
+    map.set( cutWidth, 0, cutRightImg );
+  }
+  mapX = mapX + SCROLL_SPEED;
+  if (mapX + width >= haikei.width) {
+    mapX = 0;
+  }
+  return( map );
 }
