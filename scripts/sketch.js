@@ -132,7 +132,7 @@ function Jump(){
   }
 }
 
-function drawBackground(q){
+function drawBackground(){
   getDispImg();
 }
 
