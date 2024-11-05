@@ -27,6 +27,6 @@
 
 イメージ図
 ------------
-![kikakusho](https://photos.fife.usercontent.google.com/pw/AP1GczODWl1KJtJqakBJedNVdS4iB_Ax5JGtg2EDXIsX6tRF_qRZn2qtrzyC=w641-h352)
+![kikakusho](https://photos.fife.usercontent.google.com/pw/AP1GczODWl1KJtJqakBJedNVdS4iB_Ax5JGtg2EDXIsX6tRF_qRZn2qtrzyC=w641-h352-s-no-gm?authuser=0)
 
 
