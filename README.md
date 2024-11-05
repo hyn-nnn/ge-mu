@@ -24,3 +24,9 @@
     * 攻撃  
     * ジャンプ  
     など……
+
+イメージ図
+------------
+![kikakusho](https://photos.app.goo.gl/3WSF6XzyNweycVYM7)
+
+
