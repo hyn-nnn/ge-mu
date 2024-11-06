@@ -27,6 +27,6 @@
 
 イメージ図
 ------------
-![kikakusho](https://photos.app.goo.gl/yConqdFWyBGBhv1SA)
+![kikakusho](https://d.kuku.lu/shbncz8yu)
 
 
