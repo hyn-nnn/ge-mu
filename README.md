@@ -27,6 +27,6 @@
 
 イメージ図
 ------------
-![kikakusho](https://d.kuku.lu/shbncz8yu)
+![kikakusho](https://github.com/user-attachments/assets/f48d3689-62a6-47b1-b382-63b422ee9eed)
 
 
